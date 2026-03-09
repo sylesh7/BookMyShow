@@ -1,16 +1,16 @@
-# 🎬 BookMyShow - Modern Movie Ticket Booking System
+# BookMyShow - Modern Movie Ticket Booking System
 
 A full-stack, cinematic-themed web application for booking movie tickets with a stunning dark UI/UX, interactive seat selection, and real-time availability management.
 
-## ✨ Key Features
+## Key Features
 
-### 🎨 Modern Dark Theme Design
+### Modern Dark Theme Design
 - **Cinematic Dark Mode**: Professional dark theme inspired by premium cinema apps
 - **Smooth Animations**: Micro-interactions and fluid transitions throughout
 - **Responsive Layout**: Fully optimized for desktop, tablet, and mobile devices
 - **Gradient Accents**: Eye-catching red/pink gradients for CTAs and highlights
 
-### 🏠 Enhanced Home Page (Discovery)
+### Enhanced Home Page (Discovery)
 - **Search Bar**: Quick movie lookup by title or genre
 - **Category Tabs**: Toggle between "Now Showing" and "Coming Soon"
 - **Genre Pills**: Quick filters for Action, Comedy, Drama, Thriller, etc.
@@ -18,14 +18,14 @@ A full-stack, cinematic-themed web application for booking movie tickets with a 
 - **Location Picker**: Dropdown for city/location selection
 - **Live Stats**: Real-time display of available movies and bookings
 
-### 🎥 Movie Detail Page
+### Movie Detail Page
 - **Visual Hero Section**: Large movie header with backdrop styling
 - **Synopsis & Ratings**: Detailed movie information and user ratings
 - **Interactive Showtimes**: Date selector with theatre-specific time slots
 - **Real-time Availability**: Live seat count and ticket pricing
 - **Smooth Navigation**: Scroll-to-section for better UX
 
-### 💺 Interactive Seat Selection
+### Interactive Seat Selection
 - **Theatrical View**: Curved "Screen" indicator at the top
 - **Interactive Seat Map**: 8 rows × 12 seats with click-to-select
 - **Color Coding**: 
@@ -36,33 +36,33 @@ A full-stack, cinematic-themed web application for booking movie tickets with a 
 - **Live Summary**: Bottom bar showing selected seats and total price
 - **Validation**: Prevents overbooking and insufficient seat scenarios
 
-### 💳 Booking Summary & Payment
+### Booking Summary & Payment
 - **Order Details**: Complete booking summary with movie poster
 - **Customer Information**: Name, email, and phone collection
 - **Payment Methods**: Card, UPI, and Wallet options
 - **Price Breakdown**: Ticket price + convenience fee calculation
 - **Secure Indicators**: Trust signals for payment security
 
-### 🎫 E-Ticket with QR Code
+### E-Ticket with QR Code
 - **QR Code Generation**: Scannable QR code for theatre entry
 - **Booking Details**: Complete ticket information
 - **Download Option**: Save ticket as PDF (coming soon)
 - **Add to Wallet**: One-tap integration with Apple/Google Wallet
 - **Share Feature**: Share booking via native sharing
 
-### 🔧 Admin Panel
+### Admin Panel
 - Full CRUD operations for movies
 - Add, edit, delete movie listings
 - Real-time seat management
 
-### 📊 Backend Features
+### Backend Features
 - RESTful Spring Boot APIs
 - MySQL database with JPA/Hibernate
 - Automatic seat availability updates
 - Custom exception handling
 - CORS enabled for frontend integration
 
-## 🚀 Tech Stack
+## Tech Stack
 
 ### Frontend
 - **HTML5** - Semantic markup
@@ -77,7 +77,7 @@ A full-stack, cinematic-themed web application for booking movie tickets with a 
 - **MySQL 8.0+** - Relational database
 - **Maven** - Build tool
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 Online_ticket_booking_system/
@@ -122,22 +122,48 @@ Online_ticket_booking_system/
    ```
 
 3. Update database credentials in `backend/bookmyshow/src/main/resources/application.properties`:
-   🎯 User Journey
+   ```properties
+   spring.datasource.url=jdbc:mysql://localhost:3306/bookmyshow_db
+   spring.datasource.username=root
+   spring.datasource.password=your_password
+   spring.jpa.hibernate.ddl-auto=update
+   ```
 
-1. **Discover** → Browse movies on home page with search & filters
-2. **Select** → Click movie to view details and showtimes
-3. **Choose Seats** → Interactive seat selection with live availability
-4. **Book** → Enter details and choose payment method
-5. **Confirm** → Get e-ticket with QR code instantly
+### 2. Backend Setup
 
-## 📸 Screenshots & Design Inspiration
-Prerequisites
-- Java 17 or higher
-- Maven 3.6+
-- MySQL 8.0+
-- Modern web browser (Chrome, Firefox, Edge recommended)
+1. Navigate to the backend directory:
+   ```bash
+   cd backend/bookmyshow
+   ```
 
-### 
+2. Build the project:
+   ```bash
+   mvn clean install
+   ```
+
+3. Run the Spring Boot application:
+   ```bash
+   mvn spring-boot:run
+   ```
+
+4. The backend will start on `http://localhost:8080`
+
+### 3. Frontend Setup
+
+1. ight-click `index.html` and select "Open with Live Server"
+
+3. Open `http://localhost:3000` in your browser
+
+## User Journey
+
+1. **Discover** - Browse movies on home page with search & filters
+2. **Select** - Click movie to view details and showtimes
+3. **Choose Seats** - Interactive seat selection with live availability
+4. **Book** - Enter details and choose payment method
+5. **Confirm** - Get e-ticket with QR code instantly
+
+## Design Inspiration
+
 The UI follows modern cinema app design principles:
 - **Dribbble**: Premium movie booking UI trends
 - **Behance**: Full UX case studies
@@ -162,8 +188,29 @@ The UI follows modern cinema app design principles:
    ```bash
    npx http-server -p 3000 -c-1
    ```
+- Enter name, email, and phone
+   - Choose payment method
+   - Click "Confirm Booking"
 
-4. **Option 3: VS Code Live Server**
+5. **Get E-Ticket**
+   - View QR code and booking details
+   - Download or share ticket
+
+### Admin Flow
+
+1. **Add Movies**
+   - Go to Movies (Admin) page
+   - Enter movie details
+   - Set ticket price and available seats
+   - Click "Save Movie"
+
+2. **Manage Movies**
+   - View all movies in system
+   - Edit or delete existing movies
+   - Monitor seat availability
+
+##
+4. ption 3: VS Code Live Server**
    - Install "Live Server" extension
    - Right-click `index.html` → "Open with Live Server"
 
@@ -171,7 +218,7 @@ The UI follows modern cinema app design principles:
 
 ## 🎮 Usage Guide
 
-### Customer Flow
+###stomer Flow
 
 1. **Browse Movies**
    - Use search bar or genre filters
@@ -179,50 +226,7 @@ The UI follows modern cinema app design principles:
 
 2. **View Details**
    - See movie synopsis, ratings, and showtimes
-   - Click "Book Seats" button
-
-3. **Select Seats**
-   - Click on available seats (grey)
-   - Selected seats turn pink
-   - See live price calculation
-   - Click "Proceed to Payment"
-
-4. **Complete Booking**
-   🎨 Design Principles Implemented
-
-### 1. Minimalist UI
-- **Clear Hierarchy**: Bold titles, readable fonts
-- **Reduced Clutter**: Only essential information shown
-- **Step-by-Step Flow**: One action at a time
-
-### 2. Dark Theme
-- **Cinema Experience**: Mimics theatre ambiance
-- **High Contrast**: Important elements stand out
-- **Eye Comfort**: Reduced strain for users
-
-### 3. Micro-interactions
-- **Hover Effects**: Scale and shadow animations
-- **Seat Selection**: Smooth color transitions
-- **Button Feedback**: Visual response on click
-
-### 4. Mobile-First Responsive
-- **Flexbox & Grid**: Adaptive layouts
-- **Touch-Friendly**: Large tap targets
-- **Readable Text**: Minimum 14px font size
-
-## 🔐 Security Features
-
-- Input validation on both frontend and backend
-- SQL injection prevention via JPA
-- CORS configured for specific origins
-- Secure payment indicators
-- QR code encryption for tickets
-
-## 🚀 Performance Optimizations
-
-- Async/await for non-blocking API calls
-- CSS animations using GPU acceleration
-- Minimal external dependencies
+   Future Enhancemen
 - Lazy loading for images (when implemented)
 - Optimized seat map rendering
 
@@ -277,7 +281,11 @@ The UI follows modern cinema app design principles:
 - [ ] Trailer video integration
 - [ ] Dynamic seat pricing (peak/off-peak hours)
 - [ ] Multi-city theatre listings
-- [ ] User reviews and ratings system
+- [ ] User rendation engine based on user preferences
+
+## Troubleshooting
+
+### Backend eviews and ratings system
 - [ ] Loyalty points and offers
 - [ ] Social media login
 - [ ] PWA capabilities for offline access
@@ -290,7 +298,7 @@ The UI follows modern cinema app design principles:
 - **QR code not showing**: Ensure QRCode.js CDN is accessible
 - **Styles not loading**: Clear browser cache (Ctrl+F5)
 - **API errors**: Verify backend is running on port 8080
-- **CORS errors**: Check backend CORS configuration
+- *RS errors**: Check backend CORS configuration
 
 ### Common Problems
 1. **Booking fails**: Check if sufficient seats are available
@@ -299,11 +307,11 @@ The UI follows modern cinema app design principles:
 4. **E-ticket blank**: Check console for JavaScript errors
 
 ## 🤝 Contributing
+License
 
-Contributions are welcome! Please follow these steps:
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+This project is created for educational purposes.
+
+##t your changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
@@ -378,10 +386,31 @@ For issues or questions:
 - Check username and password in `application.properties`
 - Ensure database exists or auto-creation is enabled
 
-## License
+## ense
 
 This project is created for educational purposes.
 
 ## Author
 
-Created as part of the Online Movie Ticket Booking System project.
+Created as part , select seats, book tickets, and get e-ticket
+
+## Key Achievements
+
+- Modern dark theme UI/UX
+- Interactive seat selection
+- QR code e-ticket generation
+- Real-time seat availability
+- Responsive design
+- Complete booking flow
+- Admin panel
+- RESTful backend
+- MySQL integration
+- Error handling
+
+---
+
+**Version**: 2.0.0 (Enhanced UI/UX)
+
+**Last Updated**: March 2026
+
+Built for cinema lovers worldwide
