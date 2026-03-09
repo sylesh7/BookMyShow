@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Details - BookMyShow</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dark-theme">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-film"></i>
+                <span>BookMyShow</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="bookings.html"><i class="fas fa-ticket-alt"></i> My Bookings</a></li>
+                <li><a href="movies.html"><i class="fas fa-cog"></i> Admin</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Movie Hero Section -->
+    <section class="movie-hero" id="movieHero">
+        <div class="movie-backdrop"></div>
+        <div class="movie-hero-content">
+            <div class="container">
+                <button class="btn-back" onclick="window.history.back()">
+                    <i class="fas fa-arrow-left"></i> Back
+                </button>
+                <div class="movie-hero-grid">
+                    <div class="movie-poster-container">
+                        <div class="movie-poster" id="moviePoster">
+                            <i class="fas fa-film fa-5x"></i>
+                        </div>
+                    </div>
+                    <div class="movie-info-main">
+                        <h1 class="movie-title" id="movieTitle">Loading...</h1>
+                        <div class="movie-meta">
+                            <span class="genre-tag" id="genreTag">Genre</span>
+                            <span class="rating-badge">
+                                <i class="fas fa-star"></i> 4.5/5
+                            </span>
+                        </div>
+                        <div class="movie-stats">
+                            <span><i class="far fa-clock"></i> 2h 30m</span>
+                            <span><i class="fas fa-calendar"></i> <span id="movieShowTime">-</span></span>
+                            <span><i class="fas fa-couch"></i> <span id="availableSeats">-</span> seats</span>
+                        </div>
+                        <div class="ticket-price">
+                            <i class="fas fa-ticket-alt"></i> 
+                            ₹<span id="ticketPrice">-</span> per seat
+                        </div>
+                        <button class="btn btn-primary btn-large" onclick="scrollToShowtimes()">
+                            <i class="fas fa-calendar-check"></i> Book Seats
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Synopsis Section -->
+    <section class="synopsis-section">
+        <div class="container">
+            <h2><i class="fas fa-book"></i> Synopsis</h2>
+            <p class="synopsis-text">
+                Experience the ultimate cinematic adventure with stunning visuals and compelling storytelling.
+                This movie promises to take you on an unforgettable journey filled with action, emotions, and drama.
+            </p>
+        </div>
+    </section>
+
+    <!-- Showtimes Section -->
+    <section class="showtimes-section" id="showtimesSection">
+        <div class="container">
+            <h2><i class="fas fa-clock"></i> Select Showtime</h2>
+            <div class="date-selector">
+                <button class="date-pill active">
+                    <span class="date-day">Today</span>
+                    <span class="date-num" id="today"></span>
+                </button>
+                <button class="date-pill">
+                    <span class="date-day">Tomorrow</span>
+                    <span class="date-num" id="tomorrow"></span>
+                </button>
+            </div>
+            
+            <div class="theatres-list">
+                <div class="theatre-card">
+                    <div class="theatre-info">
+                        <h3><i class="fas fa-building"></i> Premium Cinema Hall</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Mumbai Central</p>
+                    </div>
+                    <div class="showtimes-grid">
+                        <button class="time-slot" onclick="goToSeatSelection()">
+                            <span class="time">09:00 AM</span>
+                            <span class="seats">Available</span>
+                        </button>
+                        <button class="time-slot" onclick="goToSeatSelection()">
+                            <span class="time">12:30 PM</span>
+                            <span class="seats">Available</span>
+                        </button>
+                        <button class="time-slot" onclick="goToSeatSelection()">
+                            <span class="time">03:45 PM</span>
+                            <span class="seats">Available</span>
+                        </button>
+                        <button class="time-slot" onclick="goToSeatSelection()">
+                            <span class="time">07:00 PM</span>
+                            <span class="seats">Fast Filling</span>
+                        </button>
+                        <button class="time-slot" onclick="goToSeatSelection()">
+                            <span class="time">10:15 PM</span>
+                            <span class="seats">Available</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 BookMyShow. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/movie-detail.js"></script>
+</body>
+</html>

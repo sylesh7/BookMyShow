@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your E-Ticket - BookMyShow</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+</head>
+<body class="dark-theme">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-film"></i>
+                <span>BookMyShow</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="bookings.html"><i class="fas fa-ticket-alt"></i> My Bookings</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Success Message -->
+    <section class="success-section">
+        <div class="container">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h1>Booking Confirmed!</h1>
+            <p>Your tickets have been booked successfully</p>
+        </div>
+    </section>
+
+    <!-- E-Ticket -->
+    <section class="ticket-section">
+        <div class="container">
+            <div class="e-ticket">
+                <div class="ticket-header">
+                    <h2><i class="fas fa-ticket-alt"></i> E-Ticket</h2>
+                    <span class="ticket-id">Booking #<span id="ticketBookingId">-</span></span>
+                </div>
+
+                <div class="ticket-content">
+                    <div class="ticket-qr">
+                        <canvas id="qrcode"></canvas>
+                        <p class="qr-text">Scan at theatre entrance</p>
+                    </div>
+
+                    <div class="ticket-details">
+                        <div class="ticket-movie-info">
+                            <h3 id="ticketMovieName">Movie Name</h3>
+                            <div class="ticket-meta">
+                                <p><i class="fas fa-calendar"></i> <span id="ticketDate">-</span></p>
+                                <p><i class="far fa-clock"></i> <span id="ticketTime">-</span></p>
+                                <p><i class="fas fa-building"></i> Premium Cinema Hall, Mumbai</p>
+                            </div>
+                        </div>
+
+                        <div class="ticket-seat-info">
+                            <div class="info-block">
+                                <label>Customer Name</label>
+                                <p id="ticketCustomerName">-</p>
+                            </div>
+                            <div class="info-block">
+                                <label>Seats</label>
+                                <p id="ticketSeats">-</p>
+                            </div>
+                            <div class="info-block">
+                                <label>Number of Seats</label>
+                                <p id="ticketNumberOfSeats">-</p>
+                            </div>
+                            <div class="info-block">
+                                <label>Total Amount</label>
+                                <p class="ticket-amount">₹<span id="ticketTotal">-</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ticket-footer">
+                    <p><i class="fas fa-info-circle"></i> Please arrive 15 minutes before showtime</p>
+                </div>
+            </div>
+
+            <div class="ticket-actions">
+                <button class="btn btn-primary" onclick="downloadTicket()">
+                    <i class="fas fa-download"></i> Download Ticket
+                </button>
+                <button class="btn btn-secondary" onclick="addToWallet()">
+                    <i class="fas fa-wallet"></i> Add to Wallet
+                </button>
+                <button class="btn btn-success" onclick="shareTicket()">
+                    <i class="fas fa-share-alt"></i> Share
+                </button>
+                <a href="index.html" class="btn btn-outline">
+                    <i class="fas fa-home"></i> Back to Home
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/api.js"></script>
+    <script src="js/ticket.js"></script>
+</body>
+</html>

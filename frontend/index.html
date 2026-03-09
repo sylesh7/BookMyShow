@@ -3,71 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BookMyShow - Online Ticket Booking</title>
+    <title>BookMyShow - Your Ultimate Movie Experience</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
+<body class="dark-theme">
+    <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
-                <h1>🎬 BookMyShow</h1>
+                <i class="fas fa-film"></i>
+                <span>BookMyShow</span>
+            </div>
+            <div class="nav-search">
+                <i class="fas fa-search"></i>
+                <input type="text" id="quickSearch" placeholder="Search for movies, genres...">
             </div>
             <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="movies.html">Movies</a></li>
-                <li><a href="bookings.html">My Bookings</a></li>
+                <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="bookings.html"><i class="fas fa-ticket-alt"></i> My Bookings</a></li>
+                <li><a href="movies.html"><i class="fas fa-cog"></i> Admin</a></li>
             </ul>
         </div>
     </nav>
 
-    <div class="hero">
+    <!-- Location Bar -->
+    <div class="location-bar">
         <div class="container">
-            <h1>Welcome to BookMyShow</h1>
-            <p>Book your favorite movie tickets online - Fast, Easy & Secure</p>
-            <a href="movies.html" class="btn btn-primary">Browse Movies</a>
+            <div class="location-picker">
+                <i class="fas fa-map-marker-alt"></i>
+                <span id="currentLocation">Mumbai</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
         </div>
     </div>
 
-    <div class="container">
-        <section class="features">
-            <h2>Why Choose Us?</h2>
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🎟️</div>
-                    <h3>Easy Booking</h3>
-                    <p>Book tickets in just a few clicks</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💺</div>
-                    <h3>Real-time Seats</h3>
-                    <p>See available seats in real-time</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔒</div>
-                    <h3>Secure Payment</h3>
-                    <p>Your transactions are safe with us</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🎬</div>
-                    <h3>Latest Movies</h3>
-                    <p>Watch the latest blockbusters</p>
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+        <div class="hero-slider">
+            <div class="hero-slide active">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1 class="hero-title">Experience Cinema Like Never Before</h1>
+                    <p class="hero-subtitle">Book your tickets instantly and enjoy premium entertainment</p>
+                    <button class="btn btn-primary btn-large" onclick="scrollToMovies()">
+                        <i class="fas fa-play"></i> Explore Movies
+                    </button>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="quick-search">
-            <h2>Search Movies by Genre</h2>
-            <div id="genreSearch">
-                <input type="text" id="genreInput" placeholder="Enter genre (e.g., Action, Comedy)">
-                <button onclick="searchByGenre()" class="btn btn-primary">Search</button>
-            </div>
-            <div id="searchResults" class="movies-grid"></div>
-        </section>
-    </div>
-
-    <footer>
+    <!-- Category Tabs -->
+    <section class="category-section">
         <div class="container">
-            <p>&copy; 2026 BookMyShow. All rights reserved.</p>
+            <div class="category-tabs">
+                <button class="tab-btn active" data-category="now-showing" onclick="switchCategory('now-showing')">
+                    <i class="fas fa-fire"></i> Now Showing
+                </button>
+                <button class="tab-btn" data-category="coming-soon" onclick="switchCategory('coming-soon')">
+                    <i class="fas fa-calendar"></i> Coming Soon
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Genre Filter -->
+    <section class="genre-filter">
+        <div class="container">
+            <div class="genre-pills">
+                <button class="genre-pill active" data-genre="all" onclick="filterByGenre('all')">All</button>
+                <button class="genre-pill" data-genre="action" onclick="filterByGenre('Action')">Action</button>
+                <button class="genre-pill" data-genre="comedy" onclick="filterByGenre('Comedy')">Comedy</button>
+                <button class="genre-pill" data-genre="drama" onclick="filterByGenre('Drama')">Drama</button>
+                <button class="genre-pill" data-genre="thriller" onclick="filterByGenre('Thriller')">Thriller</button>
+                <button class="genre-pill" data-genre="horror" onclick="filterByGenre('Horror')">Horror</button>
+                <button class="genre-pill" data-genre="romance" onclick="filterByGenre('Romance')">Romance</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Movies Grid -->
+    <section class="movies-section" id="moviesSection">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="fas fa-film"></i> Now Showing
+            </h2>
+            <div id="moviesGrid" class="movies-grid-modern">
+                <div class="loading-spinner">
+                    <div class="spinner"></div>
+                    <p>Loading movies...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Stats -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-film"></i>
+                    <h3 id="totalMovies">0</h3>
+                    <p>Movies Available</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-ticket-alt"></i>
+                    <h3 id="totalBookings">0</h3>
+                    <p>Tickets Booked</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-users"></i>
+                    <h3>50K+</h3>
+                    <p>Happy Customers</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-star"></i>
+                    <h3>4.8</h3>
+                    <p>Average Rating</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4><i class="fas fa-film"></i> BookMyShow</h4>
+                    <p>Your ultimate movie booking experience</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="movies.html">Admin Panel</a></li>
+                        <li><a href="bookings.html">My Bookings</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-envelope"></i> support@bookmyshow.com</p>
+                    <p><i class="fas fa-phone"></i> +91 1800-000-0000</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 BookMyShow. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 

@@ -5,43 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Bookings - BookMyShow</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
+<body class="dark-theme">
+    <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
-                <h1>🎬 BookMyShow</h1>
+                <i class="fas fa-film"></i>
+                <span>BookMyShow</span>
             </div>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="movies.html">Movies</a></li>
-                <li><a href="bookings.html" class="active">My Bookings</a></li>
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="bookings.html" class="active"><i class="fas fa-ticket-alt"></i> My Bookings</a></li>
+                <li><a href="movies.html"><i class="fas fa-cog"></i> Admin</a></li>
             </ul>
         </div>
     </nav>
 
-    <div class="container">
-        <div class="page-header">
-            <h1>My Bookings</h1>
-            <button onclick="loadBookings()" class="btn btn-primary">Refresh</button>
-        </div>
-
-        <div id="bookingsSection">
-            <div id="bookingsList">
-                <div class="loading">Loading bookings...</div>
+    <!-- Page Header -->
+    <section class="booking-header">
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h1><i class="fas fa-ticket-alt"></i> My Bookings</h1>
+                <button onclick="loadBookings()" class="btn btn-secondary">
+                    <i class="fas fa-sync-alt"></i> Refresh
+                </button>
             </div>
         </div>
+    </section>
 
-        <div id="noBookings" style="display: none;" class="no-data">
-            <h3>No bookings found</h3>
-            <p>You haven't booked any tickets yet.</p>
-            <a href="movies.html" class="btn btn-primary">Browse Movies</a>
-        </div>
-    </div>
-
-    <footer>
+    <!-- Bookings Section -->
+    <section class="payment-section">
         <div class="container">
-            <p>&copy; 2026 BookMyShow. All rights reserved.</p>
+            <div id="bookingsList">
+                <div class="loading-spinner">
+                    <div class="spinner"></div>
+                    <p>Loading your bookings...</p>
+                </div>
+            </div>
+
+            <div id="noBookings" style="display: none; text-align: center; padding: 4rem;">
+                <i class="fas fa-ticket-alt" style="font-size: 5rem; color: var(--text-muted); margin-bottom: 1rem;"></i>
+                <h2>No bookings yet</h2>
+                <p style="color: var(--text-secondary); margin-bottom: 2rem;">Start booking your favorite movies now!</p>
+                <a href="index.html" class="btn btn-primary btn-large">
+                    <i class="fas fa-film"></i> Browse Movies
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 BookMyShow. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 

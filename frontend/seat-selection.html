@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Seats - BookMyShow</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dark-theme">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-film"></i>
+                <span>BookMyShow</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="bookings.html"><i class="fas fa-ticket-alt"></i> My Bookings</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Booking Header -->
+    <section class="booking-header">
+        <div class="container">
+            <button class="btn-back" onclick="window.history.back()">
+                <i class="fas fa-arrow-left"></i> Back
+            </button>
+            <div class="booking-info">
+                <h2 id="selectedMovie">Movie Title</h2>
+                <p><i class="far fa-clock"></i> <span id="selectedShowtime">Today, 7:00 PM</span> | 
+                   <i class="fas fa-building"></i> Premium Cinema Hall</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seat Selection Section -->
+    <section class="seat-selection-section">
+        <div class="container">
+            <!-- Screen Indicator -->
+            <div class="screen-container">
+                <div class="screen">
+                    <i class="fas fa-tv"></i> SCREEN THIS WAY
+                </div>
+            </div>
+
+            <!-- Seat Legend -->
+            <div class="seat-legend">
+                <div class="legend-item">
+                    <div class="seat-icon available"></div>
+                    <span>Available</span>
+                </div>
+                <div class="legend-item">
+                    <div class="seat-icon selected"></div>
+                    <span>Selected</span>
+                </div>
+                <div class="legend-item">
+                    <div class="seat-icon occupied"></div>
+                    <span>Occupied</span>
+                </div>
+            </div>
+
+            <!-- Seat Map -->
+            <div class="seat-map" id="seatMap">
+                <!-- Seats will be generated dynamically -->
+            </div>
+
+            <!-- Price Legend -->
+            <div class="price-tiers">
+                <div class="tier-card">
+                    <h4>Premium</h4>
+                    <p class="tier-price">₹<span id="premiumPrice">350</span></p>
+                </div>
+                <div class="tier-card">
+                    <h4>Normal</h4>
+                    <p class="tier-price">₹<span id="normalPrice">250</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Summary Bar -->
+    <div class="booking-summary-bar">
+        <div class="container">
+            <div class="summary-content">
+                <div class="selected-seats-info">
+                    <span class="seats-count" id="selectedSeatsCount">0 Seats Selected</span>
+                    <span class="seat-numbers" id="selectedSeatNumbers">-</span>
+                </div>
+                <div class="summary-price">
+                    <span class="price-label">Total:</span>
+                    <span class="price-value">₹<span id="totalPrice">0</span></span>
+                </div>
+                <button class="btn btn-success btn-large" id="proceedBtn" onclick="proceedToPayment()" disabled>
+                    Proceed to Payment <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/seat-selection.js"></script>
+</body>
+</html>
