@@ -176,7 +176,7 @@ The UI follows modern cinema app design principles:
 - Success: `#00ff88` (Neon Green)
 - Text: `#ffffff` (White) / `#b3b3b3` (Grey)
 
-## 🛠️ Navigate to the backend directory:
+##  Navigate to the backend directory:
    ```bash
    cd backend/bookmyshow
    **Option 1: Using Python**
@@ -216,7 +216,7 @@ The UI follows modern cinema app design principles:
 
 5. Open `http://localhost:3000` in your browser
 
-## 🎮 Usage Guide
+##  Usage Guide
 
 ###stomer Flow
 
@@ -230,7 +230,7 @@ The UI follows modern cinema app design principles:
 - Lazy loading for images (when implemented)
 - Optimized seat map rendering
 
-## 📝 - Available Seats
+##  - Available Seats
 4. Click **"Save Movie"**
 
 ### Booking Tickets
@@ -306,7 +306,7 @@ The UI follows modern cinema app design principles:
 3. **Payment redirects**: Ensure localStorage is enabled
 4. **E-ticket blank**: Check console for JavaScript errors
 
-## 🤝 Contributing
+##  Contributing
 License
 
 This project is created for educational purposes.
@@ -315,11 +315,11 @@ This project is created for educational purposes.
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📄 License
+##  License
 
 This project is created for educational purposes.
 
-## 👨‍💻 Developer Notes
+##  Developer Notes
 
 ### Code Structure
 - **Modular JS**: Each page has its own JS file
@@ -334,14 +334,14 @@ This project is created for educational purposes.
 - Mobile-first responsive design
 - Clean code with comments
 
-## 🌟 Design Resources Used
+##  Design Resources Used
 
 - **Font Awesome 6.4.0** - Icons
 - **QRCode.js** - QR code generation
 - **Google Fonts** (implied) - Inter/Segoe UI
 - **Color Hunt** - Color palette inspiration
 
-## 📞 Support
+##  Support
 
 For issues or questions:
 - Check the troubleshooting section
@@ -349,68 +349,10 @@ For issues or questions:
 - Ensure all dependencies are installed
 - Verify database credentials
 
-## 🎬 Demo Workflow
+##  Demo Workflow
 
 1. Start MySQL database
 2. Run Spring Boot backend: `mvn spring-boot:run`
 3. Start frontend server: `python -m http.server 3000`
 4. Open `http://localhost:3000`
 5. Browse movies → Select seats → Book tickets → Get e-ticket!
-
-## 🏆 Key Achievements
-
-✅ Modern dark theme UI/UX
-✅ Interactive seat selection
-✅ QR code e-ticket generation
-✅ Real-time seat availability
-✅ Responsive design
-✅ Complete booking flow
-✅ Admin panel
-✅ RESTful backend
-✅ MySQL integration
-✅ Error handling
-
----
-
-**Built with ❤️ for cinema lovers worldwide**
-
-**Version**: 2.0.0 (Enhanced UI/UX)
-**Last Updated**: March 2026
-### Frontend API errors
-- Verify backend is running on `http://localhost:8080`
-- Check browser console for CORS errors
-- Ensure API endpoints are accessible
-
-### Database connection issues
-- Verify MySQL service is running
-- Check username and password in `application.properties`
-- Ensure database exists or auto-creation is enabled
-
-## ense
-
-This project is created for educational purposes.
-
-## Author
-
-Created as part , select seats, book tickets, and get e-ticket
-
-## Key Achievements
-
-- Modern dark theme UI/UX
-- Interactive seat selection
-- QR code e-ticket generation
-- Real-time seat availability
-- Responsive design
-- Complete booking flow
-- Admin panel
-- RESTful backend
-- MySQL integration
-- Error handling
-
----
-
-**Version**: 2.0.0 (Enhanced UI/UX)
-
-**Last Updated**: March 2026
-
-Built for cinema lovers worldwide
