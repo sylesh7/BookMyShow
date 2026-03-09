@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookMyShow - Online Ticket Booking</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>🎬 BookMyShow</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="movies.html">Movies</a></li>
+                <li><a href="bookings.html">My Bookings</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <div class="container">
+            <h1>Welcome to BookMyShow</h1>
+            <p>Book your favorite movie tickets online - Fast, Easy & Secure</p>
+            <a href="movies.html" class="btn btn-primary">Browse Movies</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <section class="features">
+            <h2>Why Choose Us?</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎟️</div>
+                    <h3>Easy Booking</h3>
+                    <p>Book tickets in just a few clicks</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💺</div>
+                    <h3>Real-time Seats</h3>
+                    <p>See available seats in real-time</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Secure Payment</h3>
+                    <p>Your transactions are safe with us</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎬</div>
+                    <h3>Latest Movies</h3>
+                    <p>Watch the latest blockbusters</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="quick-search">
+            <h2>Search Movies by Genre</h2>
+            <div id="genreSearch">
+                <input type="text" id="genreInput" placeholder="Enter genre (e.g., Action, Comedy)">
+                <button onclick="searchByGenre()" class="btn btn-primary">Search</button>
+            </div>
+            <div id="searchResults" class="movies-grid"></div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 BookMyShow. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/home.js"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies - BookMyShow</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>🎬 BookMyShow</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="movies.html" class="active">Movies</a></li>
+                <li><a href="bookings.html">My Bookings</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Movie Management</h1>
+            <button onclick="showAddMovieForm()" class="btn btn-primary">+ Add New Movie</button>
+        </div>
+
+        <!-- Add/Edit Movie Form -->
+        <div id="movieFormSection" class="form-section" style="display: none;">
+            <div class="form-card">
+                <h2 id="formTitle">Add New Movie</h2>
+                <form id="movieForm">
+                    <input type="hidden" id="movieId">
+                    <div class="form-group">
+                        <label for="movieName">Movie Name *</label>
+                        <input type="text" id="movieName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="genre">Genre *</label>
+                        <input type="text" id="genre" placeholder="e.g., Action, Comedy, Drama" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="showTime">Show Time *</label>
+                        <input type="datetime-local" id="showTime" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ticketPrice">Ticket Price *</label>
+                        <input type="number" id="ticketPrice" step="0.01" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="availableSeats">Available Seats *</label>
+                        <input type="number" id="availableSeats" min="0" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-success">Save Movie</button>
+                        <button type="button" onclick="hideMovieForm()" class="btn btn-secondary">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Movies List -->
+        <div id="moviesSection">
+            <h2>Available Movies</h2>
+            <div id="moviesList" class="movies-grid">
+                <div class="loading">Loading movies...</div>
+            </div>
+        </div>
+
+        <!-- Booking Modal -->
+        <div id="bookingModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeBookingModal()">&times;</span>
+                <h2>Book Tickets</h2>
+                <form id="bookingForm">
+                    <input type="hidden" id="bookingMovieId">
+                    <div class="booking-details">
+                        <p><strong>Movie:</strong> <span id="bookingMovieName"></span></p>
+                        <p><strong>Ticket Price:</strong> ₹<span id="bookingTicketPrice"></span></p>
+                        <p><strong>Available Seats:</strong> <span id="bookingAvailableSeats"></span></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="customerName">Your Name *</label>
+                        <input type="text" id="customerName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="numberOfSeats">Number of Seats *</label>
+                        <input type="number" id="numberOfSeats" min="1" required oninput="calculateTotal()">
+                    </div>
+                    <div class="total-price">
+                        <strong>Total Price: ₹<span id="totalPrice">0</span></strong>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-success">Confirm Booking</button>
+                        <button type="button" onclick="closeBookingModal()" class="btn btn-secondary">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 BookMyShow. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/movies.js"></script>
+</body>
+</html>

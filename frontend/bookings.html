@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bookings - BookMyShow</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>🎬 BookMyShow</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="movies.html">Movies</a></li>
+                <li><a href="bookings.html" class="active">My Bookings</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>My Bookings</h1>
+            <button onclick="loadBookings()" class="btn btn-primary">Refresh</button>
+        </div>
+
+        <div id="bookingsSection">
+            <div id="bookingsList">
+                <div class="loading">Loading bookings...</div>
+            </div>
+        </div>
+
+        <div id="noBookings" style="display: none;" class="no-data">
+            <h3>No bookings found</h3>
+            <p>You haven't booked any tickets yet.</p>
+            <a href="movies.html" class="btn btn-primary">Browse Movies</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 BookMyShow. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/bookings.js"></script>
+</body>
+</html>
